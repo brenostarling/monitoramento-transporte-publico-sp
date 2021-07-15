@@ -1,8 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import * as VueGoogleMaps from "vue2-google-maps";
+import App from "./App.vue";
+import GmapCluster from "vue2-google-maps/dist/components/cluster";
+import vuetify from "@/plugins/vuetify"; // path to vuetify export
 
-Vue.config.productionTip = false
+Vue.component("GmapCluster", GmapCluster);
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyDYkmsi_Glqw2JxSaRALLa-BJx1YIunat8",
+  },
+});
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");
